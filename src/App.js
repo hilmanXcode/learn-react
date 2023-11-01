@@ -1,14 +1,19 @@
-import Introduction from './components/introduction';
-import Profile from './components/profile'; 
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+
+import Home from "./pages/home";
+import About from "./pages/about";
+import NotFound from "./pages/notfound";
 
 function App() {
   return (
-    <>
-      <Profile/>
-      <Introduction name="Hilman" />
-      <Introduction name="Dadang" />
-    </>
-  );
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="/about" element={<About/>} />
+        <Route path="*" element={<NotFound/>} />
+      </Routes>
+    </Router>
+  )
 }
 
 export default App;
